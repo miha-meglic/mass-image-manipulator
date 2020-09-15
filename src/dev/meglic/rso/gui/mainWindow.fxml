@@ -1,0 +1,93 @@
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Tooltip?>
+
+<VBox fx:id="root" fx:controller="dev.meglic.rso.gui.Controller" xmlns:fx="http://javafx.com/fxml"
+      prefHeight="400" prefWidth="600" alignment="center" spacing="35">
+
+    <GridPane alignment="center" hgap="10" vgap="10">
+        <Label text="IN Folder:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfInFolder" editable="false" prefWidth="300"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="2" onAction="#handleInFolder">
+            <graphic>
+                <GridPane alignment="CENTER" hgap="2">
+                    <Circle radius="2" fill="dimgray" GridPane.columnIndex="0"/>
+                    <Circle radius="2" fill="dimgray" GridPane.columnIndex="1"/>
+                    <Circle radius="2" fill="dimgray" GridPane.columnIndex="2"/>
+                </GridPane>
+            </graphic>
+        </Button>
+
+        <Label text="OUT Folder:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfOutFolder" editable="false" prefWidth="300"
+                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Button GridPane.rowIndex="1" GridPane.columnIndex="2" onAction="#handleOutFolder">
+            <graphic>
+                <GridPane alignment="CENTER" hgap="2">
+                    <Circle radius="2" fill="dimgray" GridPane.columnIndex="0"/>
+                    <Circle radius="2" fill="dimgray" GridPane.columnIndex="1"/>
+                    <Circle radius="2" fill="dimgray" GridPane.columnIndex="2"/>
+                </GridPane>
+            </graphic>
+        </Button>
+    </GridPane>
+
+    <GridPane alignment="center" hgap="10" vgap="10">
+        <rowConstraints>
+            <RowConstraints minHeight="1" prefHeight="25" maxHeight="100"/>
+            <RowConstraints minHeight="1" prefHeight="25" maxHeight="100"/>
+            <RowConstraints minHeight="1" prefHeight="25" maxHeight="100"/>
+            <RowConstraints minHeight="1" prefHeight="25" maxHeight="100"/>
+        </rowConstraints>
+
+        <Region prefWidth="50" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <CheckBox fx:id="cbResizeL" text="Resize" onAction="#handleResizeScale"
+                  GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label text="Long edge:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <Spinner fx:id="spLongedge" GridPane.rowIndex="0" GridPane.columnIndex="3">
+            <tooltip>
+                <Tooltip text="Select a value from 100 to 8000"/>
+            </tooltip>
+        </Spinner>
+        <Label text="px" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+
+        <CheckBox fx:id="cbResizeW" text="Resize" onAction="#handleResizeScale"
+                  GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label text="Width:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <Spinner fx:id="spWidth" GridPane.rowIndex="1" GridPane.columnIndex="3">
+            <tooltip>
+                <Tooltip text="Select a value from 100 to 8000"/>
+            </tooltip>
+        </Spinner>
+        <Label text="px" GridPane.rowIndex="1" GridPane.columnIndex="4"/>
+
+        <CheckBox fx:id="cbScale" text="Scale" onAction="#handleResizeScale"
+                  GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Label text="Scaling factor:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <Spinner fx:id="spScale" GridPane.rowIndex="2" GridPane.columnIndex="3">
+            <tooltip>
+                <Tooltip text="Select a value from 0.1 to 2.5"/>
+            </tooltip>
+        </Spinner>
+
+        <CheckBox fx:id="cbGrayscale" text="Grayscale" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    </GridPane>
+
+    <HBox alignment="center" spacing="10">
+        <Button text="Process" onAction="#handleProcess"/>
+        <Button text="Exit" onAction="#exit"/>
+    </HBox>
+
+</VBox>
